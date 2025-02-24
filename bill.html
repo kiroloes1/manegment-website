@@ -1,0 +1,574 @@
+<!doctype html>
+<html dir="rtl" lang="ar" data-bs-theme="auto">
+  <head>
+   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="generator" content="">
+    <title>أفا كيرلس_فواتير</title>
+    <link rel="icon" href="./pic/logo.png">
+    
+
+
+     <!-- fontawesom -->
+     <link
+     rel="stylesheet"
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+     crossorigin="anonymous"
+     referrerpolicy="no-referrer"
+   />
+   <link rel="stylesheet" href="./bootstrap-icons-1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
+
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+  <script src="./dist/js/bootstrap.bundle.min.js"></script>
+   <link rel="stylesheet" href="./dist/css/bootstrap.min.css">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+
+       
+      }
+      .nav-link{
+        margin: 0.5vh;
+      }
+      .nav-link:hover{
+        
+        background-color: #0d6efd;
+        padding: 1vh;
+      }
+      
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+     
+       
+      .side_bar {
+    width: 70px; 
+    height: 100vh;
+    
+   
+    background: #212529;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+}
+
+.side_bar:hover {
+    width: 280px;
+}
+
+
+.side_bar ul,
+.side_bar span,
+.side_bar .dropdown {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+.side_bar:hover ul,
+.side_bar:hover span,
+.side_bar:hover .dropdown {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+.side_bar i {
+    margin-left: -5vh;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.side_bar:hover i {
+    margin-left: 10px;
+}
+/* تخصيص شريط التمرير */
+::-webkit-scrollbar {
+  width: 5px; /* عرض شريط التمرير */
+  height: 5px; /* ارتفاع شريط التمرير (للحالة الأفقية) */
+}
+
+/* تخصيص ممر التمرير */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* خلفية ممر التمرير */
+  border-radius: 10px; /* شكل الممر */
+}
+
+/* تخصيص المبدّل (الجزء المتحرك) */
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* لون المبدّل */
+  border-radius: 10px; /* شكل المبدّل */
+}
+
+/* تخصيص المبدّل عند التمرير عليه */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* تغيير اللون عند التمرير */
+}
+
+      
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="sidebars.css" rel="stylesheet">
+  </head>
+
+ 
+
+  <body dir="rtl">
+<div class="sidebar-small"></div>
+    <!-- switch mood -->
+    <div class="dropdown position-fixed bottom-0 start-0 mb-3 ms-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme ">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <i class="bi bi-lightbulb-fill me-1"></i><use href="#sun-fill"></use></svg>
+            نهار
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <i class="bi bi-moon-stars-fill me-1"></i><use href="#moon-stars-fill"></use></svg>
+            ليل
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            تلقائي
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+ 
+  <symbol id="home" viewBox="0 0 16 16">
+    <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"/>
+  </symbol>
+ 
+  <symbol id="people-circle" viewBox="0 0 16 16">
+    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+  </symbol>
+
+</svg>
+
+<main class="d-flex flex-nowrap">
+ 
+<!-- sidebar-content -->
+  <div class=" side_bar d-flex flex-column flex-shrink-0 p-3 justify-content-center " >
+    
+    <a  href="./index.html" class="d-flex  mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      
+   
+      <i class="bi bi-lightning-charge w-25 fs-3 ms-3"></i>
+      <span class="fs-4">أفا كيرلس</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="index.html" class="nav-link text-white active" aria-current="page">
+          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+          الصفحه الرئيسيه
+        </a>
+      </li>
+
+      <li>
+        <a href="Customers.html" class="nav-link text-white">
+          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+          اضافه منتجات
+        </a>
+      </li>
+
+
+      <li>
+        <a href="bill.html" class="nav-link text-white">
+       
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-receipt" viewBox="0 0 16 16">
+            <path d="M1.92.506a.5.5 0 0 1 .434.14L3 1.293l.646-.647a.5.5 0 0 1 .708 0L5 1.293l.646-.647a.5.5 0 0 1 .708 0L7 1.293l.646-.647a.5.5 0 0 1 .708 0L9 1.293l.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .801.13l.5 1A.5.5 0 0 1 15 2v12a.5.5 0 0 1-.053.224l-.5 1a.5.5 0 0 1-.8.13L13 14.707l-.646.647a.5.5 0 0 1-.708 0L11 14.707l-.646.647a.5.5 0 0 1-.708 0L9 14.707l-.646.647a.5.5 0 0 1-.708 0L7 14.707l-.646.647a.5.5 0 0 1-.708 0L5 14.707l-.646.647a.5.5 0 0 1-.708 0L3 14.707l-.646.647a.5.5 0 0 1-.801-.13l-.5-1A.5.5 0 0 1 1 14V2a.5.5 0 0 1 .053-.224l.5-1a.5.5 0 0 1 .367-.27m.217 1.338L2 2.118v11.764l.137.274.51-.51a.5.5 0 0 1 .707 0l.646.647.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.646.646.646-.646a.5.5 0 0 1 .708 0l.509.509.137-.274V2.118l-.137-.274-.51.51a.5.5 0 0 1-.707 0L12 1.707l-.646.647a.5.5 0 0 1-.708 0L10 1.707l-.646.647a.5.5 0 0 1-.708 0L8 1.707l-.646.647a.5.5 0 0 1-.708 0L6 1.707l-.646.647a.5.5 0 0 1-.708 0L4 1.707l-.646.647a.5.5 0 0 1-.708 0z"/>
+            <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5"/>
+          </svg>
+          فواتير
+        </a>
+      </li>
+
+
+      
+      <li>
+        <a href="rest.html" class="nav-link text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16">
+            <path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+            <path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2z"/>
+          </svg>
+          باقي 
+        </a>
+      </li>
+    </ul>
+    <hr>
+  
+
+   
+  </div>
+
+
+<!-- bar-side -->
+  <div class="b-example-divider b-example-vr"></div>
+
+
+  <!-- navbar -->
+   <div class="w-100 overflow-auto">
+ <nav class="navbar bg-body-tertiary  ">
+      <div class="container-fluid d-flex justify-content-sm-center justify-content-md-between">
+        <a class="navbar-brand">اداره منتجات أفا كيرلس</a>
+        <form class="d-flex " role="search">
+         
+          <a href="search.html" class="btn btn-outline-success " type="submit">بحث عن المنتجات</a>
+        </form>
+      </div>
+    </nav>
+
+    
+    <nav dir="ltr" aria-label="breadcrumb">
+        <ol class="breadcrumb m-2">
+          <li class="breadcrumb-item"><a href="index.html">الصفحه الرئيسيه</a></li>
+          <li class="breadcrumb-item active" aria-current="page"> فواتير</li>
+        </ol>
+      </nav>
+
+
+
+
+
+
+    <div class="p-1">
+        
+
+        <section class="mt-5 row  justify-content-center ">
+        <div class="col-10 col-md-4 Marketname">
+            <label for="">اسم المحل</label>
+            <input type="text" class="form-control " id="Marketname" placeholder="اسم المحل ">
+        </div>
+
+        <div class="col-10 col-md-4 Name">
+            <label for="">اسم التاجر</label>
+            <input type="text" class="form-control " id="Name" placeholder="اسم التاجر ">
+        </div>
+
+
+        <div class="m-3"></div>
+
+        <div class="col-10 col-md-3 hide Count">
+            <label for="">الكميه</label>
+            <input type="text" class="form-control " id="Count" placeholder="الكميه ">
+        </div>
+
+        <div class="col-10 col-md-3 hide PP">
+            <label for="">سعر المنتج</label>
+            <input type="email" class="form-control " id="PP" placeholder="سعر المنتج">
+        </div>
+
+        <div class="m-3 I hide"></div>
+
+        <div class="col-10 col-md-2 hide PN">
+            <label for="">اسم المنتج</label>
+            <input type="text" class="form-control " id="PN" placeholder="اسم المنتج" >
+        </div>
+ 
+        <div class="col-10 col-md-2  hide Gender">
+            <label for="">الصنف</label>
+            <input type="text" class="form-control" id="Gender" placeholder="الصنف" >
+        </div>
+        <div class="m-3 I hide"></div>
+ 
+        <div class="col-10 justify-content-md-center col-md-2 Date ">
+            <label for="">التاريخ</label>
+            <input type="text" class="form-control " id="Date" placeholder="التاريخ" >
+        </div>
+        <div class="m-3"></div>
+
+        <div  class="col-3 d-flex justify-content-center" >
+            
+            <button   onclick=" bill()" class="btn btn-primary  " >Sumit</button>
+        
+        </div>
+        
+    </section>
+<!-- table -->
+    <div class="mt-5 overflow-auto" >
+
+        <table class="overflow-auto table table-striped table-bordered text-center table table-success table overflow-auto ">
+         
+            <thead > 
+                <tr> 
+               <td>اسم المحل</td>
+               <td>اسم التاجر</td>
+               <td>التاريخ</td> 
+               <td>اسم المنتج</td> 
+               <td>سعر المنتج</td> 
+               <td>  الكميه</td>
+                <td>الاحمالي</td> 
+            </tr> 
+            
+            </thead> 
+         
+          
+           
+           
+         
+            
+         
+  
+        </table>
+      </div>
+    
+
+    
+     
+
+   
+    
+
+
+      </div>
+  </div>
+
+
+  
+  
+
+</main>
+
+
+<script src="./color-modes.js">
+
+</script>
+
+    <script src="sidebars.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  
+  <script>
+    // localStorage.clear()
+    let body=document.querySelector(".body");
+    let head=document.querySelector(".head");
+    let Marketname=document.querySelector("#Marketname");
+    let Name=document.querySelector("#Name");
+    let Date=document.querySelector("#Date");
+    let Productname=document.querySelector("#PN");
+    let Productprice=document.querySelector("#PP");
+    let Count=document.querySelector("#Count");
+    let Gender=document.querySelector("#Gender");
+
+
+
+    let btn1=document.querySelector(".btn1");
+    
+    let table=document.querySelector(".table");
+
+    
+    let ADD_customers;
+    if(localStorage.bills != null){
+      ADD_customers=JSON.parse(localStorage.getItem("bills"));
+      
+    }else{
+       ADD_customers=[];
+    }
+
+    
+    function bill(){
+        
+       
+         if(!Name.value.trim() ||  !Date.value.trim() || !Marketname.value.trim() || !Productname.value.trim() || !Productprice.value.trim() || !Gender.value.trim() || !Count.value.trim()) {
+         
+        
+          Swal.fire({
+          title: "warning",
+          text: "please fill the fields",
+
+          icon: "warning",
+          iconColor: "red",
+          confirmButtonText:
+            ' OK',
+          confirmButtonColor: "#212529",
+        });
+
+        
+       
+         }
+
+         else{
+
+        let s={
+          Marketname:Marketname.value,
+          Name:Name.value,
+          Date:Date.value,
+          Productname:Productname.value,
+          Productprice:Productprice.value,
+          Count:Count.value ,
+          Gender:Gender.value,
+
+
+    }
+        ADD_customers.push(s);
+        localStorage.setItem("bills",JSON.stringify(ADD_customers) )
+        
+        
+
+
+        
+     
+        
+
+        Swal.fire({
+            title: "Success",
+            text: "Customer added successfully",
+            icon: "success",
+            confirmButtonText: "OK",
+            confirmButtonColor: "#212529",
+        });
+
+     
+        ADD_customers=JSON.parse(localStorage.getItem("bills"));
+        console.log(JSON.parse(localStorage.getItem("bills")))
+            console.log(ADD_customers.length)
+            
+         for(let i=0; i<ADD_customers.length;i++){
+          
+            table.innerHTML+=
+           `
+         
+            <tbody >
+                <tr> 
+               <td>${ADD_customers[i].Marketname}</td>
+                <td>${ADD_customers[i].Name}</td>
+                 <td>${ADD_customers[i].Date}</td>
+                 <td>${ADD_customers[i].Productname}</td>
+                 <td>${ADD_customers[i].Productprice}</td>
+                 <td>${ADD_customers[i].Count}</td>
+                 <td>${(ADD_customers[i].Count)*(ADD_customers[i].Productprice)}</td>
+            </tr> 
+             </tbody>
+            
+            `;
+          
+          
+
+
+         }
+         Marketname.value=" ";
+        Date.value="";
+        Productname.value="";
+        Productprice.value="";
+       Gender.value="";
+        Count.value="";
+        Name.value="";
+
+         }
+    
+
+    }
+    
+
+
+    
+
+
+
+    
+  </script>
+  </body>
+</html>
