@@ -19,7 +19,7 @@ for(let i=0; i< Add_customers.length;i++){
               <tr>
             <th scope="row">${i+1}</th>
             <td>${Add_customers[i].First_name } </td>
-            <td>${Add_customers[i].Email }</td>
+            <td class="">${Add_customers[i].Email }<span> جنيه</span></td>
             <td>${Add_customers[i].Gender }</td>
             <td class="d-flex flex-wrap w-12 d-flex justify-content-center" >
               <a onclick="Edit(${i})" class="btn btn-primary m-1 btn-sm " data-bs-toggle="tooltip" data-bs-title="eye customer" href="./view.html"> 
@@ -103,7 +103,7 @@ function Edit(i)
 {
     edit_number=i;
     localStorage.setItem("edit_number",JSON.stringify(edit_number) )
-    console.log(JSON.parse(localStorage.getItem(("edit_number"))));
+    console.log(JSON.parse(localStorage.getItem(("productList"))));
 }
 
 

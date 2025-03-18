@@ -39,11 +39,39 @@
         -moz-user-select: none;
         user-select: none;
       }
+      *{
+        scroll-behavior: auto;
+      
+      }
+      ::-webkit-scrollbar {
+  width: 3px; /* عرض شريط التمرير */
+  height: 5px; /* ارتفاع شريط التمرير (للحالة الأفقية) */
+}
+
+/* تخصيص ممر التمرير */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* خلفية ممر التمرير */
+  border-radius: 10px; /* شكل الممر */
+}
+
+/* تخصيص المبدّل (الجزء المتحرك) */
+::-webkit-scrollbar-thumb {
+  background-color: #080000; /* لون المبدّل */
+  border-radius: 10px; /* شكل المبدّل */
+}
+
+/* تخصيص المبدّل عند التمرير عليه */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* تغيير اللون عند التمرير */
+}
 
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
         }
+      }
+      .body{
+        overflow:scroll;
       }
 
       .b-example-divider {
@@ -70,7 +98,7 @@
         position: relative;
         z-index: 2;
         height: 2.75rem;
-        overflow-y: hidden;
+      
       }
 
       .nav-scroller .nav {
@@ -82,6 +110,7 @@
         text-align: center;
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
+     
       }
 
       .btn-bd-primary {
@@ -127,7 +156,7 @@
     
    
     background: #212529;
-    overflow: hidden;
+    
     transition: width 0.3s ease-in-out;
 }
 
@@ -224,7 +253,7 @@
 
 </svg>
 
-<main class="d-flex flex-nowrap">
+<main class=" body d-flex flex-nowrap">
  
 <!-- sidebar-content -->
   <div class=" side_bar d-flex flex-column flex-shrink-0 p-3 justify-content-center " >
@@ -311,67 +340,47 @@
 
 
 
-    <div class="p-1">
+    <div class=" p-1">
         
 
         <section class="mt-5 row  justify-content-center ">
        
         <div class="col-10 col-md-4 ">
             <label for="">اسم العميل</label>
-            <input type="text" class="form-control " id="Gender" placeholder="اسم المنتج" >
+            <input type="text" class="form-control " id="customerName" placeholder="اسم العميل" >
         </div>
  
         <div class="col-10 col-md-4 ">
             <label for="">اسم المنتج</label>
-            <input type="text" class="form-control " id="Gender" placeholder="الصنف" >
+            <input type="text" class="form-control " id="productName" placeholder="اسم المنتج" >
         </div>
         <div class="m-3"></div>
  
         <div class="col-10 justify-content-md-center col-md-4 ">
             <label for="">سعر</label>
-            <input type="text" class="form-control " id="Gender" placeholder="التاريخ" >
+            <input type="text" class="form-control " id="price" placeholder="السعر" >
         </div>
 
         
         <div class="col-10 justify-content-md-center col-md-4 ">
             <label for="">الكميه</label>
-            <input type="text" class="form-control " id="Gender" placeholder="التاريخ" >
+            <input type="text" class="form-control " id="quantity" placeholder="الكميه" >
         </div>
         <div class="m-3"></div>
 
         <div  class="col-3 d-flex justify-content-center" >
             
-            <button   onclick=" Customer()" class="btn btn-primary  " >Sumit</button>
+            <button   onclick=" Customer()" class="btn btn-light fs-5" >اضافه</button>
         </div>
+
+        <section class="mt-5 container mb-5  ">
+          <h3 class="d-flex justify-content-center">قائمة الطلبات:</h3>
+          <ul id="ordersList" class="list-group"></ul>
+      </section>
       
         
        
-<!-- table -->
-    <div class="mt-5" >
 
-        <table class="table table-striped table-bordered text-center table table-success ">
-          <thead>
-            <tr>
-               <!-- <td>اسم المحل</td>
-               <td>اسم التاجر</td>
-               <td>اسم المنتج</td>
-               <td>الكميه</td>
-               <td>السعر</td>
-               <td>الصنف</td>
-               <td>التاريخ</td> -->
-            </tr>
-          </thead>
-          <tbody class="body">
-            <tr>
-             
-            </tr>
-           
-         
-            
-          </tbody>
-  
-        </table>
-      </div>
     </section>
 
     
@@ -398,8 +407,76 @@
     <script src="sidebars.js"></script>
     
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    
+  </script>
   
-  
+  <script>
+    function Customer() {
+        // جلب القيم من الإدخالات
+        let customerName = document.getElementById("customerName").value;
+        let productName = document.getElementById("productName").value;
+        let price = document.getElementById("price").value;
+        let quantity = document.getElementById("quantity").value;
+
+        // التحقق من أن جميع الحقول ممتلئة
+        if (!customerName || !productName || !price || !quantity) {
+            alert("يرجى ملء جميع الحقول");
+            return;
+        }
+        
+        // إنشاء كائن للطلب
+        let order = {
+            customerName: customerName,
+            productName: productName,
+            price: price,
+            quantity: quantity
+        };
+
+        // جلب البيانات القديمة من localStorage
+        let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+        // إضافة الطلب الجديد إلى المصفوفة
+        orders.push(order);
+
+        // تخزين البيانات في localStorage
+        localStorage.setItem("orders", JSON.stringify(orders));
+
+        // تحديث العرض
+        displayOrders();
+    }
+
+    function displayOrders() {
+      // customerName.value="";
+      // productName.value="";
+      // price.value="";
+      // quantity.value="";
+        let ordersList = document.getElementById("ordersList");
+        ordersList.innerHTML = ""; // مسح القائمة القديمة
+
+        let orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+        orders.forEach((order, index) => {
+            let listItem = document.createElement("li");
+            listItem.className = "list-group-item d-flex justify-content-between align-items-center ";
+            listItem.innerHTML = `
+                <strong>${order.customerName}</strong> - ${order.productName} - ${order.price} جنيه - الكمية: ${order.quantity}
+                <button class="btn btn-danger btn-sm" onclick="deleteOrder(${index})">حذف</button>
+            `;
+            ordersList.appendChild(listItem);
+        });
+    }
+
+    function deleteOrder(index) {
+        let orders = JSON.parse(localStorage.getItem("orders")) || [];
+        orders.splice(index, 1);
+        localStorage.setItem("orders", JSON.stringify(orders));
+        displayOrders();
+    }
+
+    // عرض الطلبات عند تحميل الصفحة
+    window.onload = displayOrders;
+</script>
   
   </body>
 </html>
