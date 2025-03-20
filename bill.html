@@ -107,6 +107,60 @@
         h2,h3 ,p{
           color: #ffffff;
         }
+        .side_bar{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+@media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+     
+@media (min-width:900px){
+         
+         .side_bar {
+           width: 70px; 
+           height: 100vh;
+           background: #212529;
+           overflow: hidden;
+           transition: width 0.3s ease-in-out;
+       }
+       
+       .side_bar:hover {
+           width: 280px;
+       }
+       
+       
+       .side_bar ul,
+       .side_bar span,
+       .side_bar .dropdown {
+           opacity: 0;
+           transform: translateX(-20px);
+           transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+       }
+       
+       
+       .side_bar:hover ul,
+       .side_bar:hover span,
+       .side_bar:hover .dropdown {
+           opacity: 1;
+           transform: translateX(0);
+       }
+       .side_bar i {
+           margin-left: -5vh;
+           transition: margin-left 0.3s ease-in-out;
+       }
+       
+       .side_bar:hover i {
+           margin-left: 10px;
+       }
+       }
+       
     </style>
     
     <style>
@@ -286,9 +340,9 @@
   
   </svg>
     <main class=" body d-flex flex-nowrap">
- 
+     
       <!-- sidebar-content -->
-        <div class=" side_bar d-flex flex-column flex-shrink-0 p-3 justify-content-center " >
+        <div class=" side_bar flex-shrink-0 p-3 justify-content-center " >
           
           <a  href="./index.html" class="d-flex  mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             
@@ -375,11 +429,11 @@
           <div class=" p-1">
               
       
-            <div class="invoice-container">
+            <div class="container-fluid">
               <h2>فاتورة الشراء</h2>
               <p>التاريخ: <span id="invoice-date"></span></p>
               
-              <div class="product-inputs">
+              <div class="product-inputs ">
                   <input type="number" id="product-id" placeholder="رقم المنتج">
                   <input type="text" id="product-name" placeholder="اسم المنتج">
                   <input type="number" id="product-quantity" placeholder="الكمية">
@@ -387,7 +441,7 @@
                   <button class="btn btn-light add-btn " onclick="addProduct()">إضافة المنتج</button>
               </div>
               
-              <table>
+              <table >
                   <thead>
                       <tr>
                           <th>رقم المنتج</th>
@@ -426,6 +480,26 @@
       
       </main>
     <script>
+function Toggle(){
+  let side_bar =document.querySelector(".side_bar")
+let divider =document.querySelector(".b-example-divider ")
+if(side_bar.classList.contains("d-flex")){
+
+  console.log(3)
+  side_bar.classList.add("d-none")
+  divider.classList.add("d-none")
+  side_bar.classList.remove("d-flex")
+  divider.classList.remove("d-flex")
+}
+else{
+  side_bar.classList.add("d-flex")
+  divider.classList.add("d-flex")
+  side_bar.classList.remove("d-none")
+  divider.classList.remove("d-none")
+  console.log(4)
+}
+  
+}
 
         document.getElementById("invoice-date").innerText = new Date().toLocaleDateString("ar-EG");
 
