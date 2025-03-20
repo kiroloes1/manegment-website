@@ -107,7 +107,29 @@ function Edit(i)
 }
 
 
+function Toggle(){
+  let side_bar =document.querySelector(".side_bar")
+let divider =document.querySelector(".b-example-divider ")
 
+if(side_bar.classList.contains("d-flex")){
+
+  console.log(3)
+  side_bar.classList.add("d-none")
+  divider.classList.add("d-none")
+  side_bar.classList.remove("d-flex")
+  divider.classList.remove("d-flex")
+  
+}
+else{
+  side_bar.classList.add("d-flex")
+  divider.classList.add("d-flex")
+  side_bar.classList.remove("d-none")
+  divider.classList.remove("d-none")
+ 
+  console.log(4)
+}
+  
+}
 
 
 
